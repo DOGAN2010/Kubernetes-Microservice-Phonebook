@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: resultserver
-          image: dogan2010/resultserver:v2
+          image: dogan2010/resultserver
           ports:
           - containerPort: 80
           env:

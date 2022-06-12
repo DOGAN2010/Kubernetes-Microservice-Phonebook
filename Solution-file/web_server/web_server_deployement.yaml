@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: webserver
-          image: dogan2010/webserver:v2
+          image: dogan2010/webserver
           ports:
           - containerPort: 80
           env:
