@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resultserver-deploy
+  labels:
+    name: resultserver-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: resultserver-deploy
+  template:
+    metadata:
+      name: resultserver-deploy
+      labels:
+        name: resultserver-deploy
+    spec:
+      containers:
+        - name: resultserver
+          image: dogan2010/resultserver:v2
+          ports:
+          - containerPort: 80
+          env:
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: mysql-admin-password
+          envFrom:
+          - configMapRef:
+              name: servers-configmap
+
+
